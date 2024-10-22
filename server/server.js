@@ -31,7 +31,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 app.use(cors());
 
 app.use(cors({
-    origin: 'https://task-manager-yashwanth-941d9764a925.herokuapp.com/', // Replace with your Heroku app URL
+    origin: 'https://task-manager-yashwanth-941d9764a925.herokuapp.com/api', // Replace with your Heroku app URL
     credentials: true,
 }));
 
