@@ -42,7 +42,7 @@ app.use('/api/tasks', taskRoutes);
 
 // Serve index.html for all other routes
 app.get('*', (req, res) => {
-    const indexPath = path.resolve(__dirname, '../client/build', 'index.html');
+    const indexPath = path.resolve('../client/build', 'index.html');
     res.sendFile(indexPath);
 });
 
