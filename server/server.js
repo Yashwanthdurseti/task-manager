@@ -50,27 +50,11 @@ app.use('/api/tasks', taskRoutes);
 
 
 
-// app.get('*', (req, res) => {
-//     const indexPath = path.join(__dirname, '../client/build', 'index.html');
-//     res.sendFile(indexPath);
-//    // res.send(indexPath); // Just for testing
-// });
-
-const path = require('path');
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../client/build')));
-
-// Construct the path to index.html
-const indexPath = path.join(__dirname, '../client/build', 'index.html');
-
-// The catch-all handler to serve the React app
 app.get('*', (req, res) => {
-    res.sendFile(indexPath, (err) => {
-        if (err) {
-            res.status(err.status).end();
-        }
-    });
+    const indexPath = path.join(__dirname, '../client/build', 'index.html');
+    console.log(__dirname);
+    //res.sendFile(indexPath);
+    res.send(indexPath); // Just for testing
 });
 
 
