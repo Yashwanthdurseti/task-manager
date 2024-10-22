@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-
 const api = axios.create({
-    baseURL: 'https://task-manager-yashwanth-941d9764a925.herokuapp.com/api/', // Change to your deployed backend URL
+    baseURL: 'https://task-manager-yashwanth-941d9764a925.herokuapp.com/api/', // Change to your backend URL when deployed
 });
-
 
 export const registerUser = async (userData) => {
     return await api.post('/auth/register', userData);
