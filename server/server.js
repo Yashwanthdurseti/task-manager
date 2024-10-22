@@ -52,7 +52,8 @@ app.use('/api/tasks', taskRoutes);
 
 app.get('*', (req, res) => {
     const indexPath = path.join(__dirname, '../client/build', 'index.html');
-    res.send(indexPath); // Just for testing
+    res.sendFile(indexPath);
+   // res.send(indexPath); // Just for testing
 });
 
 
