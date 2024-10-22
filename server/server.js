@@ -30,6 +30,11 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 // Add this line before your routes
 app.use(cors());
 
+app.use(cors({
+    origin: 'https://task-manager-yashwanth-941d9764a925.herokuapp.com/', // Replace with your Heroku app URL
+    credentials: true,
+}));
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../client/build')));
 
