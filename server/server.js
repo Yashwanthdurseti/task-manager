@@ -22,10 +22,10 @@ const PORT = process.env.PORT || 5000;
 //     saveUninitialized: true,
 // }));
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
+// Connect to MongoDB3
+// mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => console.log('MongoDB connected'))
+//     .catch(err => console.log(err));
 
 
 app.use(cors({
