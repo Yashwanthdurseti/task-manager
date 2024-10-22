@@ -1,13 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const path = require('path');
 const authRoutes = require('./routes/authRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const cors = require('cors');
-
-
 
 dotenv.config();
 
@@ -28,12 +27,20 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
-    // Add this line before your routes
+// Add this line before your routes
 app.use(cors());
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
+
+// The "catchall" handler: for any request that doesn't match one above, send back the React app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
