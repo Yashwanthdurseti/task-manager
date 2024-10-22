@@ -50,11 +50,20 @@ app.use('/api/tasks', taskRoutes);
 
 
 
+// app.get('*', (req, res) => {
+//     const indexPath = path.join(__dirname, '../client/build', 'index.html');
+ 
+//     res.sendFile(indexPath);
+//  //   res.send(indexPath); // Just for testing
+// });
+
 app.get('*', (req, res) => {
     const indexPath = path.join(__dirname, '../client/build', 'index.html');
-    console.log(__dirname);
-    //res.sendFile(indexPath);
-    res.send(indexPath); // Just for testing
+    res.sendFile(indexPath, (err) => {
+        if (err) {
+            res.status(err.status).end(); // End the response with the error status
+        }
+    });
 });
 
 
