@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "firebase": "^11.0.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-google-login": "^5.2.2"
+  }
+}

@@ -1,0 +1,58 @@
+/* TaskList.css */
+
+.task-grid {
+    display: grid; /* Use CSS Grid */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 15px; /* Space between grid items */
+}
+
+.task-item {
+    padding: 15px; /* Padding inside each task item */
+    border: 1px solid #ccc; /* Border for each task item */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Background color */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Light shadow */
+    overflow: hidden; /* Prevent overflow */
+    display: flex; /* Use flexbox for better alignment */
+    flex-direction: column; /* Arrange children in a column */
+}
+
+/* Task Title styles */
+.task-item h3 {
+    margin: 0; /* Remove margin for task title */
+    margin-bottom: 10px; /* Add space below the title */
+}
+
+/* Description styles */
+.task-item p {
+    flex-grow: 1; /* Allow description to grow */
+    overflow: auto; /* Allow scrolling if content is too long */
+    max-height: 80px; /* Set a maximum height for the description */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: -webkit-box; /* Needed for the webkit truncation */
+    -webkit-box-orient: vertical; /* Specify vertical orientation */
+    margin-bottom: 10px; /* Add space below the description */
+}
+
+/* Date styles */
+.task-item .date {
+    color: #aaa; /* Faded color for the date */
+    font-size: 0.9em; /* Slightly smaller font size */
+    margin-top: auto; /* Push the date to the bottom */
+}
+
+/* Additional styles for buttons */
+button {
+    margin-top: 5px; /* Space above buttons */
+    padding: 5px 10px; /* Button padding */
+    background-color: #007bff; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
