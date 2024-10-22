@@ -40,16 +40,11 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
-
-
+// Serve index.html for all other routes
 app.get('*', (req, res) => {
-    const indexPath = path.join(__dirname, '../client/build', 'index.html');
- 
-   res.sendFile(indexPath);
-   
+    const indexPath = path.resolve(__dirname, '../client/build', 'index.html');
+    res.sendFile(indexPath);
 });
-
-
 
 // Start the server
 app.listen(PORT, () => {
