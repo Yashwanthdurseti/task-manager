@@ -41,9 +41,15 @@ app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
 // The "catchall" handler: for any request that doesn't match one above, send back the React app
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    
+// });
+
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    res.send('Catch-all route hit'); // Just for testing
 });
+
 
 // Start the server
 app.listen(PORT, () => {
