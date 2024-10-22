@@ -5,6 +5,7 @@ const api = axios.create({
     baseURL: 'https://task-manager-yashwanth-941d9764a925.herokuapp.com/api/', // Change to your deployed backend URL
 });
 
+
 export const registerUser = async (userData) => {
     return await api.post('/auth/register', userData);
 };
@@ -43,7 +44,7 @@ export const getTasks = async (token) => {
 
 
 export const createTask = async (token, task) => {
-    const response = await fetch('http://localhost:5000/api/tasks', {
+    const response = await fetch('https://task-manager-yashwanth-941d9764a925.herokuapp.com/api/tasks', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -82,7 +83,7 @@ export const createTask = async (token, task) => {
 
 export const deleteTask = async (token, taskId) => {
     try {
-        const response = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {  // Ensure full URL
+        const response = await fetch(`https://task-manager-yashwanth-941d9764a925.herokuapp.com/api/tasks/${taskId}`, {  // Ensure full URL
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`,  // Include Bearer token
@@ -104,7 +105,7 @@ export const deleteTask = async (token, taskId) => {
 };
 
 export const updateTask = async (token, taskId, updatedTask) => {
-    const response = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+    const response = await fetch(`https://task-manager-yashwanth-941d9764a925.herokuapp.com/api/tasks/${taskId}`, {
         method: 'PUT',  // HTTP PUT method for updates
         headers: {
             'Content-Type': 'application/json',
