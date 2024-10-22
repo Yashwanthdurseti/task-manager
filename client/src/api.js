@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api/', // Change to your backend URL when deployed
+    baseURL: 'https://task-manager-yashwanth-941d9764a925.herokuapp.com/api/', // Change to your deployed backend URL
 });
 
 export const registerUser = async (userData) => {
