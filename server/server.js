@@ -52,14 +52,21 @@ const fs = require('fs');
 
 app.get('*', (req, res) => {
     const indexPath = path.join(__dirname, '../client/build', 'index.html');
+    console.log('Index path:', indexPath);
+
+    if (!fs.existsSync(indexPath)) {
+        return res.status(404).send('index.html not found');
+    }
+
     fs.readFile(indexPath, 'utf8', (err, data) => {
         if (err) {
-            res.status(500).send('Error reading index.html');
-            return;
+            console.error('Error reading index.html:', err);
+            return res.status(500).send('Error reading index.html');
         }
         res.send(data);
     });
 });
+
 
 // app.get('*', (req, res) => {
 //     const indexPath = path.join(__dirname, '../client/build', 'index.html');
