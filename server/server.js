@@ -48,14 +48,25 @@ app.use('/api/tasks', taskRoutes);
 
 // Serve static files from the React app
 
-
+const fs = require('fs');
 
 app.get('*', (req, res) => {
     const indexPath = path.join(__dirname, '../client/build', 'index.html');
- 
-   // res.sendFile(indexPath);
-   res.send(indexPath); // Just for testing
+    fs.readFile(indexPath, 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send('Error reading index.html');
+            return;
+        }
+        res.send(data);
+    });
 });
+
+// app.get('*', (req, res) => {
+//     const indexPath = path.join(__dirname, '../client/build', 'index.html');
+ 
+//    // res.sendFile(indexPath);
+//    res.send(indexPath); // Just for testing
+// });
 
 
 
