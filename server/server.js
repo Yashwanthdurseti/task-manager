@@ -27,9 +27,9 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
-// CORS setup
+
 app.use(cors({
-    origin: 'https://task-manager-yashwanth-941d9764a925.herokuapp.com',
+    origin: '*', // Use this for testing only, restrict later
     credentials: true,
 }));
 
