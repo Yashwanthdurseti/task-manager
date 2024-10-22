@@ -40,40 +40,14 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
-// The "catchall" handler: for any request that doesn't match one above, send back the React app
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-    
-// });
 
-// Serve static files from the React app
-
-const fs = require('fs');
 
 app.get('*', (req, res) => {
     const indexPath = path.join(__dirname, '../client/build', 'index.html');
-    console.log('Index path:', indexPath);
-
-    if (!fs.existsSync(indexPath)) {
-        return res.status(404).send('index.html not found');
-    }
-
-    fs.readFile(indexPath, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Error reading index.html:', err);
-            return res.status(500).send('Error reading index.html');
-        }
-        res.send(data);
-    });
-});
-
-
-// app.get('*', (req, res) => {
-//     const indexPath = path.join(__dirname, '../client/build', 'index.html');
  
-//    // res.sendFile(indexPath);
-//    res.send(indexPath); // Just for testing
-// });
+   res.sendFile(indexPath);
+   
+});
 
 
 
